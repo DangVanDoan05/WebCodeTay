@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.khoingoaicung {
+  border: 1px solid #000;
+  height: auto; /* sẽ bao được hết khối bên ngoài.*/
+  width: 90%;
+  margin: 0 auto; /* tren duoi bang 0 trai phai la: auto*/
+}
+.header {
+  border: 1px solid #80dfff;
+  height: 130px;
+  width: 100%; /* 100% theo khối cha của nó. */
+  background: #80dfff;
+}
+.menu {
+  border: 1px solid #ffb3d9;
+  height: 50px;
+  width: 100%;
+
+  background: #ffb3d9;
+}
+#main {
+  border: 1px solid #f2f2f2;
+  height: 400px;
+  width: 100%;
+  background: #f2f2f2;
+}
+.footer {
+  border: 1px solid #80dfff;
+  height: 130px;
+  width: 100%;
+  background: #80dfff;
+}
