@@ -8,9 +8,7 @@
 </head>
 <body>
     <div class="khoingoaicung">
-        <div class="header">
-            <p>header</p>
-        </div>
+        <div class="header"></div>
         <div class="menu">
             <p>menu</p>
         </div>
@@ -18,7 +16,13 @@
             <div class="sidebar">
                 Sidebar
             </div>
+            <div class="maincontent">
+                Main content
+            </div>
+           
         </div>
+        <!-- Ngắt xuống dòng ở đây -->
+        <div class="clear"></div> 
             <div class="footer">
             <p>footer</p>
         </div>

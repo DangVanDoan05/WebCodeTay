@@ -9,16 +9,19 @@ body {
   margin: 0 auto; /* tren duoi bang 0 trai phai la: auto*/
 }
 .header {
+  background-image: url(../images/anhHeader.jpg);
+  /* cách chèn hình ảnh làm background*/
+  background-repeat: no-repeat;
+  background-size: 100% 220px;
+  /* chống lặp hình ảnh.*/
   border: 1px solid #80dfff;
-  height: 130px;
+  height: 220px;
   width: 100%; /* 100% theo khối cha của nó. */
-  background: #80dfff;
 }
 .menu {
   border: 1px solid #ffb3d9;
   height: 50px;
   width: 100%;
-
   background: #ffb3d9;
 }
 #main {
@@ -27,9 +30,30 @@ body {
   width: 100%;
   background: #f2f2f2;
 }
+.sidebar {
+  border: 1px solid #000066;
+  height: 390px;
+  width: 20%; /*Phần trăm của thằng chứa nó.*/
+  margin-top: 5px;
+  margin-left: 5px;
+  float: left; /*đổ về bên trái thằng chứa nó.*/
+}
+.maincontent {
+  border: 1px solid #c299ff;
+  height: 390px;
+  width: 79%;
+  margin-top: 5px;
+  margin-left: 5px;
+  float: right; /*đổ về bên phải thằng chứa nó.*/
+}
 .footer {
   border: 1px solid #80dfff;
   height: 130px;
   width: 100%;
   background: #80dfff;
+}
+
+.clear {
+  clear: both;
+  /*Không cho đổ theo cả 2 hướng trái phải nữa.*/
 }
