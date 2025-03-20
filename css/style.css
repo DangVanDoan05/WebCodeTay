@@ -24,6 +24,92 @@ body {
   width: 100%;
   background: #ffb3d9;
 }
+/* CSS cho menu */
+ul.list_menu li {
+  float: left;
+
+  margin: 7px;
+  padding: 5px;
+}
+ul.list_menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 60%;
+  margin: 0 auto;
+  line-height: 27px;
+}
+ul.list_menu :hover {
+  /* di chuột vào thì có màu.*/
+  background: burlywood;
+}
+ul.list_menu li a {
+  text-decoration: none;
+  text-align: center;
+  color: #000066;
+}
+/* CSS cho sidebar */
+ul.list_sidebar li {
+  margin: 7px;
+  padding: 5px;
+}
+ul.list_sidebar {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  line-height: 27px;
+}
+ul.list_sidebar :hover {
+  /* di chuột vào thì có màu.*/
+  background: rgb(125, 202, 233);
+}
+ul.list_sidebar li a {
+  text-decoration: none;
+  text-align: left;
+  color: #000066;
+  display: block; /* hiển thị theo dạng cột. */
+}
+/* CSS cho sidebar */
+/* CSS cho product_list */
+
+ul.product_list {
+  /* thẻ ul trong product list*/
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+ul.product_list li /* thẻ img rộng 100% so với thẻ li.*/ {
+  width: 19%;
+  border: 1px dashed #000;
+  margin: 5px;
+  float: left;
+  background: #d9d9d9;
+  height: 260px;
+}
+
+ul.product_list li img /* li ăn theo kích thước của ul */ {
+  width: 100%;
+}
+
+/* css cho phần maincontain */
+
+p.title_product {
+  text-align: center;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+p.price_product {
+  text-align: center;
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 #main {
   border: 1px solid #f2f2f2;
   height: 400px;
@@ -40,7 +126,7 @@ body {
 }
 .maincontent {
   border: 1px solid #c299ff;
-  height: 390px;
+  height: 550px;
   width: 79%;
   margin-top: 5px;
   margin-left: 5px;
@@ -51,6 +137,11 @@ body {
   height: 130px;
   width: 100%;
   background: #80dfff;
+}
+
+p.footer_copyright {
+  text-align: center;
+  color: #000;
 }
 
 .clear {
