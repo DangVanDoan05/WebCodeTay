@@ -1,1 +1,1 @@
-<p>Header Admincp</p>
+<p>Header</p>

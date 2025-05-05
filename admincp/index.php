@@ -9,7 +9,7 @@
 <body>
     <h3 class="title_admin">Welcome to AdminCP</h3>
     <div class="khoingoaicung">
-<?php
+        <?php
        /*-- phải để lần lượt ở trong file chạy --*/
         include("modules/header.php");
         include("modules/menu.php");
@@ -18,5 +18,6 @@
        ?>
        </div>
 
+      
 </body>
 </html>

@@ -1,1 +1,1 @@
-<p>footer Admincp</p>
+<p>footer </p>
