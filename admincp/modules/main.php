@@ -10,15 +10,10 @@
                }
                if($tam=='quanlydanhmucsanpham')
                {
-                include("main/danhmuc.php");
-               }elseif($tam=='quanlysanpham'){
-                include("main/giohang.php");
-               }elseif($tam=='quanlybaiviet'){
-                include("main/tintuc.php");
-               }elseif($tam=='quanlydanhmucbaiviet'){
-                include("main/lienhe.php");
-               }else{
-                include("main/welcome.php");
+                include("modules/quanlydanhmucsp/them.php");
+               }
+               else{
+                include("modules/dashboard.php");
                }
                
                ?>
