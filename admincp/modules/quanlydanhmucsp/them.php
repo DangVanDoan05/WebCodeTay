@@ -1,5 +1,5 @@
 <p>Thêm danh mục sản phẩm</p>
-<table border="1" width="50%" style="border-collapse: collapse;">
+<table border="1" width="50%" style="border-collapse: collapse">
  <form method="POST" action="modules/quanlydanhmucsp/xuly.php"> 
     <!-- Cấu trúc Form để truyền dữ liệu đi. -->
     <!-- Phương thức GET để lấy dữ liệu trên đường dẫn., phương thức POST để không thấy được dữ liệu trên đường dẫn. -->

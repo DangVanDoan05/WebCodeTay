@@ -1,4 +1,5 @@
 <div class="clear"></div>
+
 <div class="main">
                 <?php
                 
@@ -11,6 +12,7 @@
                if($tam=='quanlydanhmucsanpham')
                {
                 include("modules/quanlydanhmucsp/them.php");
+                include("modules/quanlydanhmucsp/lietke.php");
                }
                else{
                 include("modules/dashboard.php");

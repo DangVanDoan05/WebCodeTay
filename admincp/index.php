@@ -11,6 +11,7 @@
     <div class="khoingoaicung">
         <?php
        /*-- phải để lần lượt ở trong file chạy --*/
+        include("config/config.php");
         include("modules/header.php");
         include("modules/menu.php");
         include("modules/main.php");
