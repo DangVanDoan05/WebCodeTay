@@ -15,9 +15,17 @@
                 include("modules/quanlydanhmucsp/lietke.php");
                }
                else{
-                include("modules/dashboard.php");
+                if($tam=='quanlybaiviet'){
+                include("modules/quanlydanhmucsp/baiviet.php");
                }
+               else{
+                if($tam=='quanlydanhmucbaiviet'){
+                    include("modules/quanlydanhmucsp/quanlydanhmucbaiviet.php");
+                   }
+                   else{
+                include("dashboard.php");
+               }}}
                
                ?>
 
-</div>
+            </div>

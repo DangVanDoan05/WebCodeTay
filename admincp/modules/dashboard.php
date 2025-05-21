@@ -1,87 +1,69 @@
-<p>Welcome to dashboard</p>
-<h2>Thông tin giao hàng</h2>
-    <label for="province">Tỉnh/Thành phố:</label>
-    <select id="province" onchange="fetchDistricts()">
-        <option value="">Chọn tỉnh/thành phố</option>
-    </select>
+<body>  
+<label for="province">Tỉnh/Thành phố:</label>
+<select id="province" onchange="fetchDistricts()">
+    <option value="">Chọn tỉnh/thành phố</option>
+</select>
 
-    <label for="district">Quận/Huyện:</label>
-    <select id="district" onchange="fetchWards()">
-        <option value="">Chọn quận/huyện</option>
-    </select>
+<label for="district">Quận/Huyện:</label>
+<select id="district">
+    <option value="">Chọn quận/huyện</option>
+</select>
 
-    <label for="ward">Xã/Phường/Thị trấn:</label>
-    <select id="ward">
-        <option value="">Chọn xã/phường/thị trấn</option>
-    </select>
+<script>
 
-    <label for="address">Địa chỉ chi tiết:</label>
-    <input type="text" id="address" placeholder="Nhập địa chỉ chi tiết">
+// Danh sách quận/huyện theo từng tỉnh/thành phố
+const districtsData = {
+    hanoi: ["Ba Đình", "Hoàn Kiếm", "Hai Bà Trưng", "Đống Đa"],
+    hcm: ["Quận 1", "Quận 3", "Quận 5", "Quận 10"],
+    danang: ["Hải Châu", "Thanh Khê", "Sơn Trà", "Ngũ Hành Sơn"],
+    haiphong: ["Hồng Bàng", "Ngô Quyền", "Lê Chân", "Hải An"],
+    cantho: ["Ninh Kiều", "Bình Thủy", "Cái Răng", "Ô Môn"]
+};
 
-    <script>
-        const token = "2156da59-2fc6-11f0-ae7f-0ebaff1a480d"; // Thay thế bằng token hợp lệ của bạn
+// Danh sách tỉnh/thành phố
+const provinces = [
+    { code: "hanoi", name: "Hà Nội" },
+    { code: "hcm", name: "TP. Hồ Chí Minh" },
+    { code: "danang", name: "Đà Nẵng" },
+    { code: "haiphong", name: "Hải Phòng" },
+    { code: "cantho", name: "Cần Thơ" }
+];
 
-        async function fetchProvinces() {
-            const url = "https://online-gateway.ghn.vn/shiip/public-api/master-data/province";
-            const response = await fetch(url, {
-                method: "GET",
-                headers: { "Content-Type": "application/json", "Token": token }
-            });
-            const data = await response.json();
-            if (data.code === 200) {
-                const select = document.getElementById("province");
-                data.data.forEach(province => {
-                    const option = document.createElement("option");
-                    option.value = province.ProvinceID;
-                    option.textContent = province.ProvinceName;
-                    select.appendChild(option);
-                });
-            }
-        }
+// Hàm để tải danh sách tỉnh/thành phố vào thẻ `<select>`
+function loadProvinces() {
+    const provinceSelect = document.getElementById("province");
 
-        async function fetchDistricts() {
-            const provinceId = document.getElementById("province").value;
-            if (!provinceId) return;
-            const url = "https://online-gateway.ghn.vn/shiip/public-api/master-data/district";
-            const response = await fetch(url, {
-                method: "POST",
-                headers: { "Content-Type": "application/json", "Token": token },
-                body: JSON.stringify({ province_id: provinceId })
-            });
-            const data = await response.json();
-            if (data.code === 200) {
-                const select = document.getElementById("district");
-                select.innerHTML = "<option value=''>Chọn quận/huyện</option>";
-                data.data.forEach(district => {
-                    const option = document.createElement("option");
-                    option.value = district.DistrictID;
-                    option.textContent = district.DistrictName;
-                    select.appendChild(option);
-                });
-            }
-        }
+    provinces.forEach(province => {
+        let option = document.createElement("option");
+        option.value = province.code;
+        option.textContent = province.name;
+        provinceSelect.appendChild(option);
+    });
+}
 
-        async function fetchWards() {
-            const districtId = document.getElementById("district").value;
-            if (!districtId) return;
-            const url = "https://online-gateway.ghn.vn/shiip/public-api/master-data/ward";
-            const response = await fetch(url, {
-                method: "POST",
-                headers: { "Content-Type": "application/json", "Token": token },
-                body: JSON.stringify({ district_id: districtId })
-            });
-            const data = await response.json();
-            if (data.code === 200) {
-                const select = document.getElementById("ward");
-                select.innerHTML = "<option value=''>Chọn xã/phường/thị trấn</option>";
-                data.data.forEach(ward => {
-                    const option = document.createElement("option");
-                    option.value = ward.WardCode;
-                    option.textContent = ward.WardName;
-                    select.appendChild(option);
-                });
-            }
-        }
+// Hàm để cập nhật danh sách quận/huyện khi chọn tỉnh/thành phố
+function fetchDistricts() {
+    const provinceSelect = document.getElementById("province");
+    const selectedProvince = provinceSelect.value;
+    const districtSelect = document.getElementById("district");
 
-        fetchProvinces();
-    </script>
+    // Xóa các tùy chọn cũ
+    districtSelect.innerHTML = "<option value=''>Chọn quận/huyện</option>";
+
+    // Kiểm tra nếu có dữ liệu
+    if (districtsData[selectedProvince]) {
+        districtsData[selectedProvince].forEach(district => {
+            let option = document.createElement("option");
+            option.value = district.toLowerCase().replace(/\s/g, "-");
+            option.textContent = district;
+            districtSelect.appendChild(option);
+        });
+    }
+}
+
+// Chạy hàm khi trang tải xong
+window.onload = loadProvinces;
+
+</script>
+
+</body>

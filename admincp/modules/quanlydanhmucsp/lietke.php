@@ -4,7 +4,7 @@
     $row_lietke_danhmucsp = mysqli_query($mysqli,$sql_lietke_danhmucsp);
     // Hàm mysqli_query( xác định kết nối đến CSDL nào,Câu lệnh muốn thực hiện với CSDL. )
 ?>
-
+<body>
 <p>Liệt kê danh mục sản phẩm</p>
 <table style="width:100%" border="1"  style="border-collapse: collapse">
   <tr>
@@ -42,6 +42,8 @@
     <button onclick="calculateShippingFee()">Tính phí giao hàng</button>
     <p id="shippingFee"></p>
 
+
+
     <script> // Nó đổ dữ liệu vào kiểu gì nhỉ.
         const token = "2156da59-2fc6-11f0-ae7f-0ebaff1a480d"; // Thay thế bằng token hợp lệ của bạn
 
@@ -64,15 +66,20 @@
         }
 
         async function fetchDistricts() {
-            const provinceId = document.getElementById("province").value;
+            const provinceId = document.getElementById('province').value;
+            console.log(provinceId);
             if (!provinceId) return;
+ 
             const url = "https://online-gateway.ghn.vn/shiip/public-api/master-data/district";
             const response = await fetch(url, {
                 method: "POST",
+              
                 headers: { "Content-Type": "application/json", "Token": token },
                 body: JSON.stringify({ province_id: provinceId })
             });
+            console.log(response);
             const data = await response.json();
+            console.log(data.data)
             if (data.code === 200) {
                 const select = document.getElementById("district");
                 select.innerHTML = "<option value=''>Chọn quận/huyện</option>";
@@ -93,6 +100,7 @@
                 method: "POST",
                 headers: { "Content-Type": "application/json", "Token": token },
                 body: JSON.stringify({ district_id: districtId })
+               
             });
             const data = await response.json();
             if (data.code === 200) {
